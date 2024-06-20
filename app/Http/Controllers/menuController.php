@@ -14,12 +14,12 @@ class menuController extends Controller {
      */
 
     public function daftarMenu(){
-        $menu = DB::table('menu')->get(); 
+        $menu = DB::table('menus')->get(); 
         return view('menu.daftarMenu', ['menu' => $menu]);
     }
 
     public function detailMenu($id){
-        $menu = DB::table('menu')->where('id', $id)->first();
+        $menu = DB::table('menus')->where('id', $id)->first();
         return view('menu.detailMenu', compact('menu'));
     }
 
@@ -42,7 +42,7 @@ class menuController extends Controller {
         //     'jenis_menu.required' => 'Jenis menu tidak boleh kosong!'
         // ]);
 
-        DB::table('menu')->insert([
+        DB::table('menus')->insert([
             'id' => $request->id,
             'nama_menu' => $request->nama_menu,
             'bahan_baku' => $request->bahan_baku,
@@ -52,7 +52,7 @@ class menuController extends Controller {
     }
 
     public function edit($id){
-        $editmenu = DB::table('menu')->where('id', $id)->first();
+        $editmenu = DB::table('menus')->where('id', $id)->first();
         return view('menu.editMenu', compact('editmenu'));
     }
     
@@ -69,7 +69,7 @@ class menuController extends Controller {
         // ]);
     
         //$affectedRows = DB::table('menu')->where('id', $id)
-        DB::table('menu') ->where('id', $id)
+        DB::table('menus') ->where('id', $id)
             ->update([
             'id' => $request->id,
             'nama_menu' => $request->nama_menu, 
@@ -78,11 +78,11 @@ class menuController extends Controller {
         ]);
     
         //DB::table('menu')->where('id', $id)->update($data);
-        return redirect()->to('menu')->with('status', 'Menu berhasil diubah');
+        return redirect()->to('menus')->with('status', 'Menu berhasil diubah');
     }      
 
     public function delete($id){
-        DB::table('menu')->where('id',$id)->delete();
+        DB::table('menus')->where('id',$id)->delete();
         return redirect('menu')->with('status', 'Menu berhasil dihapus');
     }
 

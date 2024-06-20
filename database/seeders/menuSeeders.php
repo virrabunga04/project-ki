@@ -17,7 +17,7 @@ class menuSeeders extends Seeder
      */
     public function run()
     {
-        DB::table('program_paw')->insert([
+        DB::table('menus')->insert([
             [
                 'id' => 001,
                 'nama_menu' => 'es teh manis',
