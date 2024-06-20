@@ -26,7 +26,7 @@ class SesiController extends Controller
         if(Auth::attempt($infologin)){
             return redirect('home');
         }else{
-            return redirect("")->withErrors('Username dan Password yang damasukkan tidak sesuai')->withInput();
+            return redirect("")->withErrors('Username dan Password yang dimasukkan tidak sesuai')->withInput();
         }
     }
     function logout(){
